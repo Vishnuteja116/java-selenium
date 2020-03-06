@@ -1,0 +1,185 @@
+scripting-
+
+1.what element- how do we identify the element- Attributes --->inspect element(source code) ---> target
+2.what activity to be played on the element-command
+3.inputs-->value
+
+Scripts
+1.Record - instruct the tool on what has to be tested ---> tool will generate the scripts 
+
+2.Descriptive programming --->tester can write his own scripts 
+
+
+target
+
+locator type=locator value 
+
+locators
+1.id
+2.name
+3.css- 
+   css=tagname[attribute='value']
+
+4.xpath -
+    abs - /html/body/form/input[2]
+    rel -//tagname[@attribute='value']
+        //input[@id='t1'][2]
+
+
+5.link - <a> link=text of the link 
+link=click
+6.dom
+
+Selenese -
+
+1.Action -activity- open,click,wait,type,select
+2.Acessors - store the value --> store,storetitle,storetext
+3.Assertion--> check ER=AR 
+
+assert - if step fails it aborts the execution
+verify - will continue the execution even if step fails
+
+
+Selenium RC-
+
+selenium 1 
+
+remote control
+
+Tester(script) ---> server ---> Appln (browser)
+script-java /C#Sharp (junit /TestNg)----> Selenium RC server ( client libaraies + HTML & javascript) ---> Appln(browser)
+
+
+Advantages
+1.it can be tested using any browser 
+2.it can be tested using most of the programming and scripting language
+3.it can be used to handle alerts popups 
+4.can have conditional & looping stts 
+5.can perform datadriven & database testing 
+
+
+datadriven testing -
+parameterisation
+
+scenario-
+1. my atos appln need to be tested for 25,000 employees
+
+file(excel)---> one script
+
+passing n of values to  a single script.
+
+
+Disadvantage-
+
+1. no direct communication b/w script and appln  
+
+
+Selenium Webdriver ( ThoughtWorks +Google) 
+
+
+Advantages
+1.it can be tested using any browser 
+2.it can be tested using most of the programming and scripting language
+3.it can be used to handle alerts popups 
+4.can have conditional & looping stts 
+5.can perform datadriven & database testing 
+6.direct communication b/w script and appln  
+
+
+Disadvantage-
+1.Java -(junit)- Jar file -----> Appln (browser -driver sever)
+
+
+Junit-
+Framework- Annotations -@ 
+
+@Test(*)
+Functionality to test
+
+@before -setup
+@after -teardown
+@ignore - skip the execution for the test 
+
+
+Select methods
+1.selectbyvisibletext
+2.selectbyindex
+3.selectbyvalue
+4.ismultiple -boolean - T/F
+5.deselectbyvisibletext
+6.deselectbyindex
+7.deselectbyvalue
+8.deselectall
+
+
+
+navigate commands
+max and min the window
+get commands
+
+
+alert box
+frames
+window
+autoIt
+Wait stt
+WebElement
+Mouse movements
+TestNg 
+
+
+
+package com.example;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Test1 {
+
+	@Test
+	public void test() {
+		System.setProperty("webdriver.chrome.driver", "\\\\172.26.100.9\\Training-Share$\\Faculty\\Karthika\\Selenium\\Selenium - Training sw\\chromedriver.exe");
+	    WebDriver d1=new ChromeDriver();
+	    d1.get("file://172.26.100.9/Training-Share$/Faculty/Karthika/Registration.html.html");
+	    d1.findElement(By.id("t1")).sendKeys("karthika");
+        d1.findElement(By.name("lastname")).sendKeys("s");
+        d1.findElement(By.cssSelector("input[value='Female']")).click();
+        d1.findElement(By.xpath("//input[@type='checkbox'][2]")).click();
+      
+        Select drop=new Select(d1.findElement(By.name("location")));
+        drop.selectByVisibleText("U.S.S.R.");
+        Boolean output=drop.isMultiple();
+        System.out.println(output);
+        d1.findElement(By.linkText("click")).click();
+     
+        d1.navigate().back();
+       d1.navigate().forward();
+       d1.navigate().refresh();
+       d1.navigate().to("url");
+      
+       d1.manage().window().maximize();
+       
+       Dimension dim=new Dimension(250,300);
+       d1.manage().window().setSize(dim);
+       
+       d1.getCurrentUrl();
+       d1.getPageSource();
+       d1.getTitle();
+       
+       
+        d1.quit();
+        
+	}
+
+}
+
+
+
+
+

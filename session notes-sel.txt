@@ -1,0 +1,174 @@
+drop down list box
+
+Select methods-
+
+1.selectbyvisibletext()
+2.selectbyvalue()
+3.selectbyindex()
+4.ismultiple()- b- t/f
+5.deselectbyvisibletext()
+6.deselectbyvalue()
+7.deselectbyindex()
+8.deselectall()
+
+<option value="USSR">U.S.S.R.</option>
+
+<option value="India">INDIA</option>
+
+
+-handle alertbox , window, frame 
+
+switchTo().alert().accept()- ok button
+
+switchTo().alert().dismiss()-cancel the alert box 
+
+
+
+switchTo().alert().getText()-to return the inner html value from the alert box 
+
+
+elements- attributes or locators
+browser-unique session id value will be created for every browser which is opened  -alphanumeric value 
+
+getWindowHandle()- 
+
+getWindowHandles()- 
+
+
+d1.get("https://myatos-syntel.net");
+		
+       d1.findElement(By.id("_com_liferay_login_web_portlet_LoginPortlet_kpoUserName")).sendKeys("KS5047809");
+      
+       d1.findElement(By.name("_com_liferay_login_web_portlet_LoginPortlet_password")).sendKeys("Nov2019$");
+       d1.findElement(By.xpath("//button[@type='submit']")).click();
+       
+       Thread.sleep(50000);
+       d1.findElement(By.xpath("//img[@src='https://myatos-syntel.net/o/home-theme/images/GSD-portal.jpg']")).click();
+     String window_value=  d1.getWindowHandle();
+     System.out.println(window_value);
+     d1.switchTo().window(window_value);
+
+
+
+max and min window -
+
+	
+        d1.manage().window().maximize();
+        
+        
+        Dimension dim=new Dimension(350,250);
+         d1.manage().window().setSize(dim);
+         
+   
+     
+
+
+navigate commands -
+
+d1.navigate().back()- 
+d1.navigate().forward()
+d1.navigate().refresh()
+d1.navigate().to(url)
+
+
+
+
+
+Wait stt-
+
+Syncronisation- 
+
+thread.sleep- it wait until the time gets completed even if the element is available.
+
+
+1.implicitwait - throughtout the script a wait stt is included 
+
+d1.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
+2.explicitwait - it is explicitly for certain elements to be tested 
+
+textbox- visibilityofelementlocated
+button(radio,checkbox,submit)-elementstobe clickable
+alert-alertisPresent
+frame-
+
+
+WebDriverWait my_var=new WebDriverWait(d1,10);
+
+my_var.until(ExpectedConditions.elementToBeClickable(locator))
+
+
+
+
+3.fluentwait-
+
+ignore certain exception class
+peak time  -20 secs - 5 secs 
+
+
+   Wait wait = new FluentWait(driver)
+     .withTimeout(30, SECONDS)
+     .pollingEvery(5, SECONDS)
+     .ignoring(NoSuchElementException.class);
+
+
+
+AutoIT-
+
+third party tool-open source tool
+
+
+.au3--> save the script of autoit
+
+WinActive("Open")
+send("New Microsoft Word Document.docx")
+send("{TAB}")
+send ("{TAB}")
+send("{ENTER}")
+
+
+Runtime.getRuntime().exec("C:\\Users\\KS5047809\\Desktop\\window1.exe");
+
+
+
+
+
+
+Mouse movements -
+
+handling all the mouse movements in the appln- hover
+
+right click
+double click
+draganddrop
+enter
+keys- down ,up ,right ,left
+tab
+
+
+- actions 
+-build
+-perform
+
+
+
+
+
+
+TestNg- framework 
+
+next generation 
+
+
+1.reports can be generated in testng
+2.more annotations compare to junit
+3.integerate with other tools - maven - POM  , cucumber - BDD , jenkins -CI  
+4.parameterisation - @dataproviders , @parameters
+
+
+
+
+
+
+
+
